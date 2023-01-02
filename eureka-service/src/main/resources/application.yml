@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: eureka-server
+#  banner:
+#    location: classpath:/path/to/banner/banner.txt
+    image:
+      location: classpath:/path/to/banner/banner.gif
+      width: 26
+      height: 20
+#  main:
+#    banner-mode: off
+server:
+  port: 8761
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
+
+
+
+

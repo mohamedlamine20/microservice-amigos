@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: customer
+  profiles:
+    active: local
+  rabbitmq:
+    addresses: localhost:5672
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: med.lamine.bounab.dev@gmail.com
+    password: itmhzlemymsxgffc
+    properties:
+      smtp:
+        auth: true
+      starttls:
+        enable: true
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
