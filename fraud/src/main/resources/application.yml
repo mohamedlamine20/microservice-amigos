@@ -3,10 +3,8 @@ server:
 spring:
   application:
     name: fraud
-  datasource:
-    password: password
-    url: jdbc:postgresql://localhost:5432/fraud
-    username: amigoscode
+  profiles:
+    active: local
   jpa:
     hibernate:
       ddl-auto: create-drop

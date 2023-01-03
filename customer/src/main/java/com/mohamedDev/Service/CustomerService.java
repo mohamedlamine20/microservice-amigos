@@ -34,8 +34,8 @@ private final MailService mailService;
         if (response.isFraudster()){
             throw new IllegalStateException("fraudster");
         }
-       // Message message= Message.builder().messageId(UUID.randomUUID().toString()).createdAt(new Date()).message("add new customer").build();
-    //rabbitTemplate.convertAndSend("message","message",message);
+     Message message= Message.builder().messageId(UUID.randomUUID().toString()).createdAt(new Date()).message("add new customer").build();
+    rabbitTemplate.convertAndSend("message","message",message);
    // mailService.sendSimpleEmail("mbounab@wissalgroup.com","hello","test");
     }
 }
