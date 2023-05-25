@@ -15,14 +15,16 @@ spring:
     show-sql: true
   mail:
     host: smtp.gmail.com
-    port: 587
+    port: 465
     username: med.lamine.bounab.dev@gmail.com
     password: itmhzlemymsxgffc
     properties:
-      smtp:
-        auth: true
-      starttls:
-        enable: true
+      mail:
+       debug : true
+       smtp:
+         socketFactory:
+           port : 465
+           class : javax.net.ssl.SSLSocketFactory
 server:
   port: 8080
 

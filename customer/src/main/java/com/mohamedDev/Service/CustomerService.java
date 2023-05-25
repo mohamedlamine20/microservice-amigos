@@ -2,6 +2,7 @@ package com.mohamedDev.Service;
 
 import com.mohamedDev.DTO.CustomerRequest;
 import com.mohamedDev.DTO.FraudCheckResponse;
+import com.mohamedDev.DTO.MailDTO;
 import com.mohamedDev.DTO.Message;
 import com.mohamedDev.Repository.CustomerRepository;
 import com.mohamedDev.module.Customer;
@@ -9,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
@@ -37,5 +40,12 @@ private final MailService mailService;
      Message message= Message.builder().messageId(UUID.randomUUID().toString()).createdAt(new Date()).message("add new customer").build();
     rabbitTemplate.convertAndSend("message","message",message);
    // mailService.sendSimpleEmail("mbounab@wissalgroup.com","hello","test");
+    }
+
+
+    public void sendMailAttach(MailDTO mailDTO,
+                         MultipartFile attachment) throws MessagingException {
+
+        mailService.sendEmailWithAttachment(mailDTO,attachment);
     }
 }
